@@ -4,8 +4,10 @@
       .top-items__name
         taro
       .top-items__icons
-        = icon('far', 'edit', class: "icon")
-        = icon('fas', 'cog', class: "icon")
+        = link_to "#", class: "" do
+          = icon('far', 'edit', class: "icon")
+        = link_to "#", class: "" do
+          = icon('fas', 'cog', class: "icon")
   .Side-bar__group-list
     .group
       .group-name
