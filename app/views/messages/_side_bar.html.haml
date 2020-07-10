@@ -4,24 +4,15 @@
       .top-items__name
         = current_user.name
       .top-items__icons
-        = link_to "#", class: "" do
+        = link_to "/groups/new", class: "" do
           = icon('far', 'edit', class: "icon")
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog', class: "icon")
   .Side-bar__group-list
-    .group
-      .group-name
-        team A
-      .group-text
-        Aチームです
-    .group
-      .group-name
-        team B 
-      .group-text
-        Bチームです
-    .group
-      .group-name
-        team C
-      .group-text
-        Cチームです
-        
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group-name
+            = group.name
+          .group-text
+            メッセージはまだありません
