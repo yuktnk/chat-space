@@ -2,34 +2,23 @@
   .Chat-main__group-info
     .group-info
       .group-name
-        team A
+        = @group.name
       .group-menber
-        Menber: taro jiro saburo
+        %ul 
+          Menber:
+          %li<
+            yuki
     .edit-btn
-      = link_to "#", class: "underline" do
+      = link_to "edit",class: "underline" do
         Edit
   .Chat-main__message-list
-    .messagecontainer
-      .messageinfo
-        .username
-          taro
-        .posttime
-          2020年7月6日 12時00分
-      .message
-        おはよおー！
-    .messagecontainer
-      .messageinfo
-        .username
-          jiro
-        .posttime
-          2020年7月6日 11時30分
-      .message
-        おはよおー！
+    = render @messages
   .Chat-main__message-form
     .form
-      .input-container
-        %input{type: "text", placeholder: " type a message",class: "input-text"}
-        %label{class: "input-image"}
-          = icon('far', 'image')
-          %input{type: "file", class: "input-file"}
-      %input{type: "submit",class: "submit-btn", value: "Send"}
+      = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+        .input-container
+          = f.text_field :content, class: 'input-text', placeholder: 'type a message'
+          = f.label :image, class: 'input-image' do
+            = icon('far', 'image')
+            = f.file_field :image, class: 'input-file'
+        = f.submit 'Send', class: 'submit-btn'

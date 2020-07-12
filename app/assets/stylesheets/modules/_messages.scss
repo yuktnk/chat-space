@@ -5,9 +5,9 @@
 .wrapper{
   height: 100vh;
   display: flex;
-    .Side-bar {
+    .SideBar {
       width: 300px;
-      &__user-name {
+      .UserName {
         height: 100px;
         background-color: #253141;
         display: flex;
@@ -34,7 +34,7 @@
           }
         }
       }
-      &__group-list {
+      .GroupList {
         height: calc(100vh - 100px);
         background-color: #2f3e51;
         .group {
@@ -58,10 +58,6 @@
         }
       }
     }
-
-
-
-
     .Chat-main {
       width: calc(100vw - 300px);
       &__group-info {
@@ -70,8 +66,6 @@
         display: flex;
         justify-content: space-between;
         padding: 0 40px;
-
-
         .group-info {
           .group-name {
             color: #333333;
@@ -81,6 +75,9 @@
           .group-menber {
             color: #999999;
             font-size: 12px;
+            ul {
+              display: flex;
+            }
           }
         }
         .edit-btn{
@@ -127,7 +124,7 @@
         height: 90px;
         background-color: #d2d2d2;
         padding: 20px 40px;
-        .form {
+        .Form {
           display: flex;
           justify-content: space-between;
           align-items: center;
